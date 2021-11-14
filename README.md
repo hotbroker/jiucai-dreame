@@ -17,6 +17,8 @@
 | gen_account.py  |生成账号| 主要用来生成账号，可以生成2种，一种带助记词(create_mnemonic)，另一个create_accounts不用带助记词，使用例子python gen_account.py,则会各生成10个账号在当前目录下:</br>result: mnemonic_accounts_2021_11_14 16_42_56.txt</br>result: accounts_2021_11_14 16_42_56.txt|
 
 
+# TODO
+1.批量转账
 
 # 微信群
 ![Image text](https://github.com/hotbroker/jiucai-dreame/blob/master/img/c8f2ac99f9a326aaade146d89e66431.jpg)
