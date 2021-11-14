@@ -6,7 +6,7 @@
 # 基础环境要求（建议都开着梯子）
 1.安装python,安装包可到官方地址下载https://www.python.org/ 找，目前windows最新的是 3.10.0，https://www.python.org/ftp/python/3.10.0/python-3.10.0-amd64.exe  
 
-2.安装依赖包，windows系统，在目录下双击运行install_requirements.bat 即可
+2.安装依赖包，windows系统，在目录下双击运行install_requirements.bat ，最后看见successfully字眼表明安装成功即可
 
 # 工具说明
 
