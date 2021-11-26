@@ -21,4 +21,4 @@
 1.批量转账
 
 # 微信群
-![Image text](https://github.com/hotbroker/jiucai-dreame/blob/master/img/c8f2ac99f9a326aaade146d89e66431.jpg)
+![Image text](https://github.com/hotbroker/jiucai-dreame/blob/master/img/qrcode2.jpg)
