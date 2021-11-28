@@ -18,8 +18,8 @@
 | transfer_bsc.py  |BSC链批量转账| 主要用来批量转账，从1个源账号，批量转账到指定的一批账号里，使用例子python transfer_bsc.py 0x11111111111111111111 myaccounts.json 0.01:</br> 0x111是源账号的私钥，myaccounts.json 是批量目标账号的列表，0.01代表转账0.01个BNB|
 | transfer_matic.py  |matic马蹄链批量转账| 如上BSC转账一样，0.01代表转账0.01个|
 
-# TODO
-1.批量转账
+# UPDATE
+1.17:47 2021-11-28, 增加 bsc,matic 批量转账
 
 # 微信群
 ![Image text](https://github.com/hotbroker/jiucai-dreame/blob/master/img/qrcode2.jpg)
