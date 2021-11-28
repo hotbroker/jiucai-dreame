@@ -13,7 +13,7 @@ from web3.auto import w3
 
 import utils
 
-_bsc_rpc='https://bsc-dataseed.binance.org/'
+_bsc_rpc='https://rpc-mainnet.maticvigil.com'
 
 w3=w3obj  = Web3(Web3.HTTPProvider(_bsc_rpc))
 
