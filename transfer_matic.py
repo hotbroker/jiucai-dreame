@@ -24,7 +24,7 @@ def send_amount(from_prikey, to, sendvalue):
     acct = w3.eth.account.privateKeyToAccount(account_key)
     addr = acct.address
 
-    gasprice = w3.toWei('5', 'gwei')
+    gasprice = w3.toWei('30', 'gwei')
     print('gasprice', gasprice)
     print('sendvalue', sendvalue)
     sendvalue = utils.get_18_num(sendvalue)
