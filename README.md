@@ -19,7 +19,7 @@
 | transfer_matic.py  |matic马蹄链批量转账| 如上BSC转账一样，0.01代表转账0.01个|
 
 # UPDATE
-1.17:47 2021-11-28, 增加 bsc,matic 批量转账
+* 2021-11-28, 增加 bsc,matic 批量转账
 
 # 微信群
 ![Image text](https://github.com/hotbroker/jiucai-dreame/blob/master/img/qrcode2.jpg)
