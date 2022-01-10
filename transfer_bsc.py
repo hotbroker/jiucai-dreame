@@ -13,7 +13,7 @@ from web3.auto import w3
 
 import utils
 
-_bsc_rpc='https://bsc-dataseed.binance.org/'
+_bsc_rpc='https://bsc-dataseed.binance.org/' 
 
 w3=w3obj  = Web3(Web3.HTTPProvider(_bsc_rpc))
 
@@ -34,7 +34,7 @@ def send_amount(from_prikey, to, sendvalue):
     trans = {
         'nonce': nonce_online,
         'gasPrice': gasprice,
-        'gas': 22000,
+        'gas': 25000,
         'chainId': w3obj.eth.chain_id,
         'value': sendvalue,
         'to': to
