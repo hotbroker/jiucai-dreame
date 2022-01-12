@@ -69,6 +69,13 @@ def get_to_address(addressfile):
         tolist1 = json.loads(buf)
         for k in tolist1:
             tolist.append(k['addr'])
-        return tolist
 
-    return get_file_to_lines(addressfile)
+    else:
+        tolist= get_file_to_lines(addressfile)
+
+    formataddrss = []
+    for a in tolist:
+        a2 = w3.toChecksumAddress(a)
+        formataddrss.append(a2)
+
+    return  formataddrss

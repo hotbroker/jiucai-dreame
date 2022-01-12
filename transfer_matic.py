@@ -77,7 +77,7 @@ def send_to_accounts(key, toaccounts, sendamount) -> None:
 
     for to_addr in toaccounts:
         n = n + 1
-        logging.info("{}/{})acc:{}".format(n, len(toaccounts), toaccounts))
+        logging.info("{}/{})acc:{}".format(n, len(toaccounts), to_addr))
 
         nonce_online1 = w3.eth.get_transaction_count(srcaddr)
         send_amount(key, to_addr, sendamount)
