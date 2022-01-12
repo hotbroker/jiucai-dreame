@@ -17,7 +17,7 @@
 | gen_account.py  |生成账号| 主要用来生成账号，可以生成2种，一种带助记词(create_mnemonic)，另一个create_accounts不用带助记词，使用例子python gen_account.py,则会各生成10个账号在当前目录下:</br>result: mnemonic_accounts_2021_11_14 16_42_56.txt</br>result: accounts_2021_11_14 16_42_56.txt|
 | transfer_bsc.py  |BSC链批量转账| 主要用来批量转账，从1个源账号，批量转账到指定的一批账号里，使用例子python transfer_bsc.py 0x11111111111111111111 myaccounts.json 0.01:</br> 0x111是源账号的私钥，myaccounts.json 是批量目标账号的列表，0.01代表转账0.01个BNB|
 | transfer_matic.py  |matic马蹄链批量转账| 如上BSC转账一样，0.01代表转账0.01个|
-| transfer_token_bsc.py  |BSC链批量转账token| 主要用来批量转账，从1个源账号，批量转账到指定的一批账号里，使用例子python transfer_token_bsc.py 0x11111111111111111111 myaccounts.json 0.01 tokenaddress:</br> 0x111是源账号的私钥，myaccounts.json 是批量目标账号的列表，0.01代表转账0.01个BNB,tokenaddress 是需要转的token|
+| transfer_token_bsc.py  |BSC链批量转账token| 主要用来批量转账，从1个源账号，批量转账到指定的一批账号里，使用例子python transfer_token_bsc.py 0x11111111111111111111 myaccounts.json 0.01 tokenaddress:</br> 0x111是源账号的私钥，myaccounts.json 是批量目标账号的列表，0.01代表转账0.01个 token(token精度智能获取),tokenaddress 是需要转的token|
 
 # UPDATE
 * 2021-11-28, 增加 bsc,matic 批量转账
