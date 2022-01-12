@@ -61,3 +61,14 @@ def get_file_to_lines(fname):
             continue
         flines.append(l)
     return flines
+
+def get_to_address(addressfile):
+    tolist = []
+    buf = open(addressfile).read()
+    if buf[0]=='[':
+        tolist1 = json.loads(buf)
+        for k in tolist1:
+            tolist.append(k['addr'])
+        return tolist
+
+    return get_file_to_lines(addressfile)

@@ -99,16 +99,6 @@ def send_to_accounts(key, toaccounts, sendamount, token) -> None:
         print('\n\n\n')
 
 
-def get_to_address(addressfile):
-    tolist = []
-    buf = open(addressfile).read()
-    if buf[0]=='[':
-        tolist1 = json.loads(buf)
-        for k in tolist1:
-            tolist.append(k['addr'])
-        return tolist
-
-    return utils.get_file_to_lines(addressfile)
 
 def go():
     if len(sys.argv)!=5:
@@ -120,7 +110,7 @@ def go():
         return
 
     srckey = sys.argv[1]
-    tolist=get_to_address(sys.argv[2])
+    tolist=utils.get_to_address(sys.argv[2])
     sendvalue = float(sys.argv[3])
     token = sys.argv[4]
     send_to_accounts(srckey, tolist, sendvalue, token)

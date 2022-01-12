@@ -93,6 +93,7 @@ def send_to_accounts(key, toaccounts, sendamount) -> None:
         print('\n\n\n')
 
 
+
 def go():
     if len(sys.argv)!=4:
         logging.info('missing parmeters')
@@ -100,11 +101,7 @@ def go():
         logging.info('usage:python transfer_bsc.py 0x11111111111111111111 myaccounts.json 0.01')
         return
     srckey = sys.argv[1]
-    tolist=[]
-    buf = open(sys.argv[2]).read()
-    tolist1 = json.loads(buf)
-    for k in tolist1:
-        tolist.append(k['addr'])
+    tolist=utils.get_to_address(sys.argv[2])
     sendvalue = float(sys.argv[3])
 
     send_to_accounts(srckey, tolist, sendvalue)
