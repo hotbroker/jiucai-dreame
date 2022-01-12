@@ -48,8 +48,8 @@ def time_to_string(timestamp1):
 def time_to_string_filename(timestamp1):
     return datetime.fromtimestamp(timestamp1).strftime("%Y_%m_%d %H_%M_%S")
 
-def get_18_num(num):
-    return int(num*10**18)
+def get_18_num(num, decimals=18):
+    return int(num*10**decimals)
 
 def get_file_to_lines(fname):
     filebuf = open(fname).read()
