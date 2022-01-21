@@ -24,6 +24,7 @@
 # UPDATE
 * 2021-11-28, 增加 bsc,matic 批量转账
 * 2022-1-12, 增加 bsc上token 批量转账
+* 2022-1-22, 增加 ftm 上批量转账（多转1和1转多）
 
 # 微信群
 ![Image text](https://github.com/hotbroker/jiucai-dreame/blob/master/img/qrcode2.jpg)
