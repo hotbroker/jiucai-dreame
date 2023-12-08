@@ -10,11 +10,23 @@ from web3.auto import w3
 import  datetime
 from datetime import datetime
 
+_curf=os.path.abspath(__file__)
+_curf = os.path.dirname(_curf)
+proxyfile = os.path.join(_curf, 'setproxy.txt')
+
+if os.path.isfile(proxyfile):
+    buf = open(proxyfile).read()
+    if len(buf)>0:
+        logging.warning('set proxy!')
+        os.environ["https_proxy"] = buf
+
+
 def init_log(logfile='jiucai-dream.log'):
     logging.getLogger().setLevel(logging.NOTSET)
     logging.getLogger('urllib3.connectionpool').setLevel(logging.WARNING)
     logging.getLogger('web3.providers.HTTPProvider').setLevel(logging.WARNING)
     logging.getLogger('web3.RequestManager').setLevel(logging.WARNING)
+    logging.getLogger('websockets.client').setLevel(logging.WARNING)
 
     formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
     h1 = logging.StreamHandler(sys.stdout)
