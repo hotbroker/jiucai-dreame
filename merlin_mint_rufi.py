@@ -16,10 +16,12 @@ import threading
 
 _bsc_rpc='https://rpc.merlinchain.io'
 
+
 w3=w3obj  = Web3(Web3.HTTPProvider(_bsc_rpc))
 chain_id = w3obj.eth.chain_id
 
-gasprice = w3.toWei('0.4', 'gwei')
+gasprice = w3.toWei('0.1', 'gwei')
+
 
 def send_amount(from_prikey, to, sendvalue, tokenobj, nonce_online):
     
@@ -33,7 +35,7 @@ def send_amount(from_prikey, to, sendvalue, tokenobj, nonce_online):
     trans = tokenobj.functions.transfer(addr, sendvalue).buildTransaction({
         'nonce': nonce_online,
         'gasPrice': gasprice,
-        'gas': 80000,
+        'gas': 100000,
         'chainId': chain_id
 
     })
@@ -79,7 +81,7 @@ def send_amount(from_prikey, to, sendvalue, tokenobj, nonce_online):
         strexct = "except {}".format(traceback.format_exc())
         print(strexct)
 
-def send_to_accounts(key,  number, token) -> None:
+def send_to_accounts(key,  number, mincontract) -> None:
     n = 0
     sendamount = 0
     src = w3.eth.account.privateKeyToAccount(key)
@@ -87,9 +89,18 @@ def send_to_accounts(key,  number, token) -> None:
     print('sender:', srcaddr)
     
     tokenabi = json.load(open('BSC_USDC.abi'))
-
+    token = '0x9bd60d6FC99843207B8149f9190438C1F81BDdcD'
     tokenobj = w3.eth.contract(address=Web3.toChecksumAddress(token), abi=tokenabi)
+    
+    bal = tokenobj.functions.balanceOf(srcaddr).call()
+    logging.info(f'{srcaddr} balance:{bal/10**18}')
+    if bal/10**18>500000:
+        logging.info('balance is enough')
+        return True
+
+    tokenobj = w3.eth.contract(address=Web3.toChecksumAddress(mincontract), abi=tokenabi)
     nonce_online1 = w3.eth.get_transaction_count(srcaddr)
+    print('nonce_online1', nonce_online1)
     for to_addr in range(0, number):
         n = n + 1
         logging.info("{}/{})acc:{}".format(n, number, to_addr))
@@ -112,13 +123,17 @@ def go():
         return
 
     srckey = sys.argv[1]
+    
     number=int(sys.argv[2])
 
-    token = '0xC47b6F403C03B5223140DD439C8Ba04bF520a170'
+    mincontracttoken = '0xC47b6F403C03B5223140DD439C8Ba04bF520a170'
     
-    send_to_accounts(srckey, number, token)
-    print("send succ")
-    time.sleep(111)
+    while 1:
+        r = send_to_accounts(srckey, number, mincontracttoken)
+        if r:
+            print('send finished')
+            break
+        time.sleep(10)
 
 if '__main__'==__name__:
     fname = os.path.basename(os.path.abspath(__file__))
