@@ -19,7 +19,7 @@ _bsc_rpc='https://rpc.merlinchain.io'
 w3=w3obj  = Web3(Web3.HTTPProvider(_bsc_rpc))
 chain_id = w3obj.eth.chain_id
 
-gasprice = w3.toWei('0.07', 'gwei')
+gasprice = w3.toWei('0.4', 'gwei')
 
 def send_amount(from_prikey, to, sendvalue, tokenobj, nonce_online):
     
@@ -89,7 +89,7 @@ def send_to_accounts(key,  number, token) -> None:
     tokenabi = json.load(open('BSC_USDC.abi'))
 
     tokenobj = w3.eth.contract(address=Web3.toChecksumAddress(token), abi=tokenabi)
-    nonce_online1 = 26#w3.eth.get_transaction_count(srcaddr)
+    nonce_online1 = w3.eth.get_transaction_count(srcaddr)
     for to_addr in range(0, number):
         n = n + 1
         logging.info("{}/{})acc:{}".format(n, number, to_addr))
